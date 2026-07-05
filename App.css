@@ -1,0 +1,104 @@
+/* ─── PRODUCTION SHELL STYLES ─── */
+.top-actions {
+  position: sticky; top: 0; padding: 24px 60px;
+  display: flex; justify-content: flex-end; z-index: 90;
+}
+
+.theme-toggle {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--glass); border: 1px solid var(--glass-border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--charcoal); transition: var(--ease-soft);
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  padding: 60px 80px; border-top: 1px solid var(--glass-border);
+}
+.footer-content {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.copyright { font-size: 11px; letter-spacing: 1px; color: var(--grey); font-weight: 700; }
+.footer-socials { display: flex; gap: 20px; color: var(--silver); }
+
+/* ─── MOBILE ARCHITECTURE ─── */
+.mobile-header {
+  display: none; position: fixed; top: 0; width: 100%;
+  background: var(--glass); backdrop-filter: var(--glass-blur);
+  padding: 20px; z-index: 1000; border-bottom: 1px solid var(--glass-border);
+  justify-content: space-between; align-items: center;
+}
+
+/* ─── FORM & INPUTS ─── */
+.minimal-form { display: flex; flex-direction: column; gap: 20px; }
+.glass-input {
+  width: 100%; background: var(--glass); border: 1px solid var(--glass-border);
+  padding: 16px 20px; border-radius: 12px; color: var(--charcoal);
+  font-family: inherit; font-size: 14px; outline: none; transition: 0.3s;
+}
+.glass-input:focus { border-color: var(--silver); background: var(--glass-heavy); }
+.minimal-form label { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 5px; }
+
+/* ─── PRICING ─── */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.plan-card { text-align: center; display: flex; flex-direction: column; gap: 30px; }
+.plan-card.featured { border-color: var(--charcoal); transform: scale(1.05); background: var(--glass-heavy); }
+.plan-name { font-family: var(--font-heading); font-size: 24px; letter-spacing: 2px; }
+.plan-price { font-size: 48px; font-weight: 800; }
+.plan-price span { font-size: 14px; color: var(--grey); }
+.plan-features { display: flex; flex-direction: column; gap: 15px; text-align: left; }
+.feat-item { font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+
+/* ─── BUTTONS ─── */
+.btn-boutique {
+  padding: 14px 32px; background: var(--charcoal); color: var(--platinum);
+  border: none; border-radius: 12px; font-family: var(--font-heading);
+  font-weight: 700; letter-spacing: 1.5px; transition: var(--ease-soft);
+}
+.btn-boutique:hover { background: var(--grey); transform: translateY(-2px); }
+.btn-ghost { background: transparent; border: 1px solid var(--charcoal); color: var(--charcoal); }
+
+/* ─── LIGHTBOX ─── */
+.lightbox {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 10000;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 40px; cursor: pointer;
+}
+.lightbox img { max-width: 90%; max-height: 80%; border-radius: 16px; object-fit: contain; }
+.close-lightbox { position: absolute; top: 40px; right: 40px; color: white; }
+.img-overlay {
+  position: absolute; inset: 0; background: rgba(0,0,0,0.4); opacity: 0;
+  transition: 0.3s; display: flex; align-items: center; justify-content: center; color: white;
+}
+.gallery-item:hover .img-overlay { opacity: 1; }
+
+/* ─── STICKY CTA ─── */
+.sticky-cta {
+  position: fixed; bottom: 40px; left: 40px; z-index: 99;
+  background: var(--charcoal); color: white; padding: 16px 30px;
+  border-radius: 50px; font-weight: 900; letter-spacing: 1px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* ─── LOADER ─── */
+.loader-content { text-align: center; }
+.loader-line-bg { width: 200px; height: 2px; background: var(--dust); margin-top: 20px; }
+.loader-line-fill { height: 100%; background: var(--charcoal); }
+
+/* ─── RESPONSIVE OVERRIDES ─── */
+@media (max-width: 1024px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+  .plan-card.featured { transform: none; }
+}
+
+@media (max-width: 768px) {
+  .mobile-header { display: flex; }
+  .sidebar {
+    position: fixed; left: -100%; width: 100%; height: 100%;
+    background: var(--platinum); transition: 0.5s var(--ease-soft);
+  }
+  .sidebar.mobile-show { left: 0; }
+  .top-actions { display: none; }
+  .footer { padding: 40px 20px; text-align: center; }
+  .footer-content { flex-direction: column; gap: 20px; }
+}
